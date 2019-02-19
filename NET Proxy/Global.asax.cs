@@ -66,7 +66,7 @@ namespace NET_Proxy
 
             //Set header with remote ur
             request.Headers.Add("X-Forwarded-Host", request.Headers.Host);
-            request.Headers.Host = "gcs.softguard.com";
+            request.Headers.Host = ConfigurationManager.AppSettings["SG_HOST"];
             var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
             return response;
         }
