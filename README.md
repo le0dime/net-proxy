@@ -6,4 +6,5 @@
 *Abrir el archivo NET Proxy.sln <br/>
 *Descargar las dependencias de nuget
 ### Para cambiar el endpoint de destino
-*Cambiar el valor de la clave `SG_ENDPOINT` en el web config
+*Cambiar el valor de la clave `SG_ENDPOINT` por la url remota (sin http/https) en el web config <br/>
+*Cambiar el valor de la clave `SG_HOST` por el host remoto (sin http/https) en el web config
