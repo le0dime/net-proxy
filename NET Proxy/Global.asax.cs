@@ -57,6 +57,8 @@ namespace NET_Proxy
 
             //Set remote uri
             forwardUri.Host = ConfigurationManager.AppSettings["SG_ENDPOINT"];
+            forwardUri.Port = Convert.ToInt32(ConfigurationManager.AppSettings["SG_PORT"]);
+            forwardUri.Scheme = ConfigurationManager.AppSettings["SG_SCHEME"];
             request.RequestUri = forwardUri.Uri;
 
             if (request.Method == HttpMethod.Get)

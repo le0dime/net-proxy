@@ -1,10 +1,12 @@
 # Proxy para realizar forwarding de requests .NET
-### Requisitos para levantar el proyecto en desarrollo: <br/>
-*Tener instalado visual studio y .NET Framework 4.5 <br/>
+### Requisitos para levantar el proyecto en desarrollo:
+* Tener instalado visual studio y .NET Framework 4.5
 ### Procedimiento de apertura de proyecto y debug
-*Clonar el repositorio <br/>
-*Abrir el archivo NET Proxy.sln <br/>
-*Descargar las dependencias de nuget
-### Para cambiar el endpoint de destino
-*Cambiar el valor de la clave `SG_ENDPOINT` por la url remota (sin http/https) en el web config <br/>
-*Cambiar el valor de la clave `SG_HOST` por el host remoto (sin http/https) en el web config
+* Clonar el repositorio
+* Abrir el archivo NET Proxy.sln
+* Descargar las dependencias de nuget
+### Para cambiar el endpoint de destino (dentro del archivo `web.config`)
+* `SG_ENDPOINT`: url remota (sin http/https)
+* `SG_HOST`: host remoto (sin http/https)
+* `SG_PORT`: puerto remoto
+* `SG_SCHEMA`: protocolo remoto (http/https)
