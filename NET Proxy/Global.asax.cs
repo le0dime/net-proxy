@@ -93,14 +93,16 @@ namespace NET_Proxy
 
             if (!string.IsNullOrEmpty(origin))
             {
+                response.Headers.Remove("Access-Control-Allow-Origin");
                 response.Headers.Add("Access-Control-Allow-Origin", origin);
             }
 
             if (!string.IsNullOrEmpty(contentType))
             {
+                response.Headers.Remove("Access-Control-Allow-Headers");
                 response.Headers.Add("Access-Control-Allow-Headers", contentType);
             }
-            
+
             return response;
         }
     }
