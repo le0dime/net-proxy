@@ -7,6 +7,7 @@ using System.Net.Security;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace NET_Proxy
 {
@@ -25,6 +26,9 @@ namespace NET_Proxy
         //Register endpoint
         public static void Register(HttpConfiguration config)
         {
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+
             config.Routes.MapHttpRoute(
                 name: "Proxy",
                 routeTemplate: "{*path}",
@@ -43,8 +47,6 @@ namespace NET_Proxy
 
     public class ProxyHandler : DelegatingHandler
     {
-        private static HttpClient client = new HttpClient();
-
         protected override async Task<HttpResponseMessage> SendAsync(
             HttpRequestMessage request,
             CancellationToken cancellationToken)
@@ -89,7 +91,7 @@ namespace NET_Proxy
             //Set header with remote url
             request.Headers.Add("X-Forwarded-Host", request.Headers.Host);
             request.Headers.Host = ConfigurationManager.AppSettings["SG_HOST"];
-            var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+            var response = await base.SendAsync(request, cancellationToken);
 
             if (!string.IsNullOrEmpty(origin))
             {
