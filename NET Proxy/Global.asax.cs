@@ -89,8 +89,8 @@ namespace NET_Proxy
             }
 
             //Set header with remote url
-            request.Headers.Add("X-Forwarded-Host", request.Headers.Host);
-            request.Headers.Host = ConfigurationManager.AppSettings["SG_HOST"];
+            //request.Headers.Add("X-Forwarded-Host", request.Headers.Host);
+            //request.Headers.Host = ConfigurationManager.AppSettings["SG_HOST"];
             var response = await base.SendAsync(request, cancellationToken);
 
             if (!string.IsNullOrEmpty(origin))
